@@ -30,16 +30,3 @@ $(document).ready(function(){
 		});
 	});
 });
-function loadXMLDoc()
-{
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById("showContent").innerHTML=xmlhttp.responseText;
-    }
-  }
-xmlhttp.open("GET","cats/1",true);
-xmlhttp.send();
-}
