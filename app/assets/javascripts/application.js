@@ -29,4 +29,8 @@ $(document).ready(function(){
 			}
 		});
 	});
+	$(window).scroll(function(){
+		var distance=$(document).scrollTop();
+		$('#img1').css({'height':$(window).height()*1.5-distance});
+	});
 });

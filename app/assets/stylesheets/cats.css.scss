@@ -1,3 +1,40 @@
 // Place all the styles related to the cats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body{
+	margin: 0px;
+}
+#img1, #img2{
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	display: block;
+	margin: auto;
+}
+#img1{
+	height:150%;
+	background: url(img1.jpg);
+	background-position: center;
+	z-index: 10;
+}
+#img2{
+	background: url(img2.jpg);
+	background-size: 100% 100%;
+	z-index: 5;
+}
+#part1, #part2{
+	width: 100%;
+	height: 1500px;
+	display:block;
+	position: relative;
+	z-index:20;
+	margin: auto;
+	text-align: center;
+}
+#gap{
+	height:800px;
+	width:100px;
+}
+#part2{
+	background-color: gray;
+}
