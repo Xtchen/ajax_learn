@@ -4,6 +4,11 @@
 body{
 	margin: 0px;
 }
+#lt-trick{
+	z-index: 6;
+	display:inline-block;
+	position:relative;
+}
 #img1, #img2{
 	height: 100%;
 	width: 100%;

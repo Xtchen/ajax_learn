@@ -29,8 +29,10 @@ $(document).ready(function(){
 			}
 		});
 	});
+	var ht=$('#img1').height();
 	$(window).scroll(function(){
 		var distance=$(document).scrollTop();
-		$('#img1').css({'height':$(window).height()*1.5-distance});
+		$('#img1').css({'height':ht-distance});
+		$('#lt-trick').css({'top':distance*1.2});
 	});
 });
