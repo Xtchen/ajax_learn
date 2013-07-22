@@ -1,13 +1,23 @@
 // Place all the styles related to the cats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 body{
 	margin: 0px;
 }
+p:hover{
+	color:red;
+}
 #lt-trick{
+	color:white;
 	z-index: 6;
 	display:inline-block;
-	position:relative;
+	position:fixed;
+	background: url(movable.png) repeat;
+	background-position: 700px 0;
+	width:100%;
+	top:0px;
+	height:100%;
 }
 #img1, #img2{
 	height: 100%;
@@ -16,30 +26,41 @@ body{
 	display: block;
 	margin: auto;
 }
+#above-img2{
+	color:white;
+	display: inline-block;
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	position: fixed;
+	z-index: 9;
+}
 #img1{
 	height:150%;
-	background: url(img1.jpg);
+	background: url(bgd.jpg);
+	background-size: 100% 100%;
 	background-position: center;
 	z-index: 10;
 }
 #img2{
-	background: url(img2.jpg);
-	background-size: 100% 100%;
+	background: url(water.png) repeat;
+	background-size: 70% 100%;
 	z-index: 5;
 }
-#part1, #part2{
+#part1, #part2, #part3{
+	color:white;
 	width: 100%;
-	height: 1500px;
+	height: 700px;
 	display:block;
 	position: relative;
 	z-index:20;
 	margin: auto;
 	text-align: center;
 }
-#gap{
-	height:800px;
-	width:100px;
-}
 #part2{
+	opacity: 0.02;
+	background: url(grain2.png) repeat;
+}
+#part3{
 	background-color: gray;
 }

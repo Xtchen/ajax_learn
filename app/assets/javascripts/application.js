@@ -29,10 +29,18 @@ $(document).ready(function(){
 			}
 		});
 	});
+	$('#part1, #part2').css({'height':$(window).height()*1.5});
+	$('#part3').css({'height':$(window).height()});
 	var ht=$('#img1').height();
+	var ht_trick=$('#lt-trick').height();
 	$(window).scroll(function(){
 		var distance=$(document).scrollTop();
-		$('#img1').css({'height':ht-distance});
-		$('#lt-trick').css({'top':distance*1.2});
+		var factor=distance/3/$(window).height()+1;
+		var height_1=$(window).height()*1.5*factor;
+		var width_1=$(window).width()*factor;
+		
+		$('#img1').css({'height':ht-distance, 'backgroundSize':width_1+'px '+height_1+'px'});
+		var dis=1.1*distance-200;
+		$('#lt-trick').css({'backgroundPosition':'700px '+dis+'px'});
 	});
 });
