@@ -9,7 +9,6 @@ p:hover{
 	color:red;
 }
 #lt-trick{
-	color:white;
 	z-index: 6;
 	display:inline-block;
 	position:fixed;
@@ -27,7 +26,6 @@ p:hover{
 	margin: auto;
 }
 #above-img2{
-	color:white;
 	display: inline-block;
 	height: 100%;
 	width: 100%;
@@ -37,18 +35,17 @@ p:hover{
 }
 #img1{
 	height:150%;
-	background: url(bgd.jpg);
+	background: url(black.jpg);
 	background-size: 100% 100%;
 	background-position: center;
 	z-index: 10;
 }
 #img2{
-	background: url(water.png) repeat;
-	background-size: 70% 100%;
+	background: url(bars.png) repeat;
+	background-size: 20%;
 	z-index: 5;
 }
 #part1, #part2, #part3{
-	color:white;
 	width: 100%;
 	height: 700px;
 	display:block;
@@ -62,5 +59,75 @@ p:hover{
 	background: url(grain2.png) repeat;
 }
 #part3{
-	background-color: gray;
+	background: url(lines.png) repeat;
+}
+#above h1{
+	color:white;
+	font-size: 120px;
+	font-family: Arial, sans-serif;
+	display: inline-block;
+	zoom: 1;
+	margin-bottom: 20px;
+	line-height: 0.9;
+}
+
+#above em{
+	font-family: Georgia, Times;
+	color:#77c18d;
+	font-weight: normal;
+	font-size: 100px;
+}
+
+#above h1>strong{
+	font-family:Arial;
+	font-weight:bolder;
+}
+
+#above a{
+	font-size: 40px;
+	display: inline;
+	text-decoration: none;
+	color:#77c18d;
+}
+#above a:hover{
+	color:red;
+}
+#above ul{
+	list-style: none;
+	display:inline;
+	padding: 10px;
+}
+#above ul li{
+	font-size: 40px;
+	display:none;
+	color:gray;
+	font-style: italic;
+}
+
+#above #part1 h2{
+	padding:20px;
+	font-size: 40px;
+	color:white;
+	font-weight: bold;
+	width: 70%;
+	margin:auto;
+	background: none;
+	background-size: 3%;
+	margin-top: 20px;
+}
+h2.hide{
+	opacity:0.2;
+}
+
+#above-img2 #head{
+	display:inline-block;
+	position:absolute;
+	top:50px;
+	left: 200px;
+}
+#above-img2 #intro{
+	color:white;
+	top:50px;
+	display:inline-block;
+	position:absolute;
 }

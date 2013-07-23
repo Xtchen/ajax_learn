@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 
-
 $(document).ready(function(){
 	$('#show').click(function(){
 		$.ajax({
@@ -29,6 +28,22 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	var index=1;
+	var lis=$('#sentences li');
+	function rotate(){
+		if(index>=lis.length){
+			index=0;
+		}
+		$(lis).hide();
+		$(lis[index]).css({'display':'inline'}).hide().fadeIn(1000);
+		index++;
+	};
+
+	$(lis).first().css({'display':'inline'});
+
+	setInterval(rotate, 3000);	
+	//rotate(0, lis);
 	$('#part1, #part2').css({'height':$(window).height()*1.5});
 	$('#part3').css({'height':$(window).height()});
 	var ht=$('#img1').height();
@@ -38,9 +53,11 @@ $(document).ready(function(){
 		var factor=distance/3/$(window).height()+1;
 		var height_1=$(window).height()*1.5*factor;
 		var width_1=$(window).width()*factor;
-		
+		var dis=1.05*distance-200;
+
 		$('#img1').css({'height':ht-distance, 'backgroundSize':width_1+'px '+height_1+'px'});
-		var dis=1.1*distance-200;
 		$('#lt-trick').css({'backgroundPosition':'700px '+dis+'px'});
+		$('#part1 h1,#part1 h2.show').css({'opacity':1-distance/$(window).height()});
+		$('#part1 h2.hide').css({'opacity':0.2+distance/$(window).height()});
 	});
 });
