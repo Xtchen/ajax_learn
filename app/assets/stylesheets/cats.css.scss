@@ -5,8 +5,12 @@
 body{
 	margin: 0px;
 }
-p:hover{
-	color:#E29292;
+#holder p{
+	transition:color 1s;
+	-webkit-transition:color 1s;
+}
+#holder p:hover{
+	color:#FF3333;
 }
 #lt-trick{
 	z-index: 6;
@@ -99,9 +103,11 @@ p:hover{
 	display: inline;
 	text-decoration: none;
 	color:#77c18d;
+	transition:color 1s;
+	-webkit-transition:color 1s;
 }
 #above a:hover{
-	color:#E29292;
+	color:#FF3333;
 }
 #above #part1 ul{
 	list-style: none;
@@ -143,7 +149,7 @@ h2.hide{
 	position:absolute;
 }
 #part3 #circle{
-	font-size: 40px;
+	font-size: 30px;
 	font-family: sans-serif;
 	color:#77c18d;
 	border: 10px solid #B9B9B9;
@@ -154,9 +160,15 @@ h2.hide{
 	background-position: 0px -120px;
 	display: inline-block;
 	line-height: 120px;
+	transition:color 1s;
+	-webkit-transition:color 1s, -webkit-transform 1s;
+	-moz-transition:color 1s, -moz-transform 1s;
 }
 #part3 #circle:hover, #part3 ul li{
 	cursor: default;
+	transform:rotate(360deg);
+	-webkit-transform:rotate(360deg); /* Safari */
+	-moz-transform:rotate(360deg); /* FF */
 };
 #above #part3 ul{
 	list-style: none;
@@ -179,4 +191,20 @@ h2.hide{
 	position:relative;
 	display: block;
 	top:-6px;
+	animation: edgeMove 3s linear 0s infinite normal;
+	-webkit-animation: edgeMove 3s linear 0s infinite normal;
+	-moz-animation: edgeMove 3s linear 0s infinite normal;
+}
+
+@keyframes edgeMove{
+	from {background-position: 0px}
+	to {background-position: 12px}
+}
+@-webkit-keyframes edgeMove{
+	from {background-position: 0px}
+	to {background-position: 12px}
+}
+@-moz-keyframes edgeMove{
+	from {background-position: 0px}
+	to {background-position: 12px}
 }

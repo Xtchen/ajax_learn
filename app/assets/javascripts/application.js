@@ -61,10 +61,9 @@ $(document).ready(function(){
 		$('#part1 h2.hide').css({'opacity':0.2+distance/$(window).height()});
 	});
 	$('#part3 li').mouseenter(function(){
-
-		$(this).find('div').stop().animate({'background-position-x':'-120px','background-position-y': '0px','margin-bottom':'-20px'},300).css({'color':'white'});
+		$(this).find('div').stop().animate({'background-position-x':'-120px','background-position-y': '0px','margin-bottom':'-20px'},500).css({'color':'#FFFFFF'});
 	});
 	$('#part3 li').mouseleave(function(){
-		$(this).find('div').stop().animate({'background-position-x':'0px','background-position-y': '-120px','margin-bottom':'0px'},300).css({'color':'#77c18d'});
+		$(this).find('div').stop().animate({'background-position-x':'0px','background-position-y': '-120px','margin-bottom':'0px'},500).css({'color':'#77c18d'});
 	});
 });
