@@ -92,12 +92,12 @@ p:hover{
 #above a:hover{
 	color:red;
 }
-#above ul{
+#above #part1 ul{
 	list-style: none;
 	display:inline;
 	padding: 10px;
 }
-#above ul li{
+#above #part1 ul li{
 	font-size: 40px;
 	display:none;
 	color:gray;
@@ -130,4 +130,41 @@ h2.hide{
 	top:50px;
 	display:inline-block;
 	position:absolute;
+}
+#part3 #circle{
+	font-size: 40px;
+	font-family: sans-serif;
+	color:#77c18d;
+	border: 10px solid #B9B9B9;
+	height: 120px;
+	width:120px;
+	border-radius: 50%;
+	background: url(wave.jpg) no-repeat;
+	background-position: 0px -120px;
+	display: inline-block;
+	line-height: 120px;
+}
+#part3 #circle:hover, #part3 ul li{
+	cursor: default;
+};
+#above #part3 ul{
+	list-style: none;
+}
+
+#above #part3 ul li{
+	display: inline-block;
+	padding: 30px;
+}
+#above #part3 ul li p{
+	margin-top: 40px;
+	font-size: 30px;
+	font-family: sans-serif;
+}
+#part3 #edge{
+	height:6px;
+	width:100%;
+	background: url(bian.png) repeat;
+	position:relative;
+	display: block;
+	top:-6px;
 }

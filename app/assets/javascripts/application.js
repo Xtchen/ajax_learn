@@ -45,7 +45,7 @@ $(document).ready(function(){
 	setInterval(rotate, 3000);	
 	//rotate(0, lis);
 	$('#part1, #part2').css({'height':$(window).height()*1.5});
-	$('#part3').css({'height':$(window).height()});
+	$('#part3').css({'height':$(window).height()*0.7});
 	var ht=$('#img1').height();
 	var ht_trick=$('#lt-trick').height();
 	$(window).scroll(function(){
@@ -59,5 +59,12 @@ $(document).ready(function(){
 		$('#lt-trick').css({'backgroundPosition':'700px '+dis+'px'});
 		$('#part1 h1,#part1 h2.show').css({'opacity':1-distance/$(window).height()});
 		$('#part1 h2.hide').css({'opacity':0.2+distance/$(window).height()});
+	});
+	$('#part3 li').mouseenter(function(){
+
+		$(this).find('div').stop().animate({'background-position-x':'-120px','background-position-y': '0px','margin-bottom':'-20px'},300).css({'color':'white'});
+	});
+	$('#part3 li').mouseleave(function(){
+		$(this).find('div').stop().animate({'background-position-x':'0px','background-position-y': '-120px','margin-bottom':'0px'},300).css({'color':'#77c18d'});
 	});
 });
