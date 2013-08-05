@@ -13,51 +13,65 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-function run(head, dir){
-    switch(dir){
-   				case 4:
-    				$(head).animate({left:"-=10px"}, 0);
-    				break;
-    			case 2:
-    				$(head).animate({left:"+=10px"}, 0);
-    				break;
-    			case 1:
-    				$(head).animate({top:"-=10px"}, 0);
-    				break;
-    			case 3:
-    				$(head).animate({top:"+=10px"}, 0);
-    				break;
-    		};
-    	};
+
+function Node(){
+	this.row=0;
+	this.col=0;
+	this.next=null;
+}
+
 function Snake(){
     this.direction= 2;
     this.speed= 1;
     this.length= 1;
+    this.width=10;
+    this.head=null;
+    this.tail=null;
+
+    function one_step(head, dir){
+    	switch(dir){
+	   		case 4:
+	   			$(head).animate({left:"-=10px"}, 0);
+	    		break;
+	    	case 2:
+	    		$(head).animate({left:"+=10px"}, 0);
+				break;
+	    	case 1:
+	    		$(head).animate({top:"-=10px"}, 0);
+	    		break;
+	    	case 3:
+	    		$(head).animate({top:"+=10px"}, 0);
+	    		break;
+		};
+    };
+
     this.move=function(head, dir){
-    	run(head, dir);
+    	one_step(head, dir);
     	return setInterval(function(){
-    		switch(dir){
-   				case 4:
-    				$(head).animate({left:"-=10px"}, 0);
-    				break;
-    			case 2:
-    				$(head).animate({left:"+=10px"}, 0);
-    				break;
-    			case 1:
-    				$(head).animate({top:"-=10px"}, 0);
-    				break;
-    			case 3:
-    				$(head).animate({top:"+=10px"}, 0);
-    				break;
-    		};
+    		one_step(head, dir)
     	}, 500);
     };
 };
+function create_table(container){
+	var tb=$('<table class="board_table"></table>');
+	var tr='<tr></tr>';
+	var td='<td></td>';
+	for(var i=0;i<50;i++){
+		var new_tr=$(tr);
+		for(var j=0;j<50;j++){
+			new_tr.append($(td).attr({'id': i+'_'+j, 'class':'cell'}));
+		}
+		tb.append($(new_tr));
+	}
+	$(container).append($(tb));
+}
 
 $(document).ready(function() {
     var snake=new Snake();
     var head=$('#snake');
     var inter=0;
+    var main=$('#board');
+    create_table(main);
     $(document).keydown(function(key){
         switch(parseInt(key.which,10)) {
 			case 65:
@@ -78,9 +92,6 @@ $(document).ready(function() {
 		clearInterval(inter);
     	inter=snake.move(head, snake.direction);
     });
-
-
-
 });
 $(document).ready(function(){
 	$('#show').click(function(){
