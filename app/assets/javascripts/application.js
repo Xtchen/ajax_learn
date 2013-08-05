@@ -13,7 +13,75 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+function run(head, dir){
+    switch(dir){
+   				case 4:
+    				$(head).animate({left:"-=10px"}, 0);
+    				break;
+    			case 2:
+    				$(head).animate({left:"+=10px"}, 0);
+    				break;
+    			case 1:
+    				$(head).animate({top:"-=10px"}, 0);
+    				break;
+    			case 3:
+    				$(head).animate({top:"+=10px"}, 0);
+    				break;
+    		};
+    	};
+function Snake(){
+    this.direction= 2;
+    this.speed= 1;
+    this.length= 1;
+    this.move=function(head, dir){
+    	run(head, dir);
+    	return setInterval(function(){
+    		switch(dir){
+   				case 4:
+    				$(head).animate({left:"-=10px"}, 0);
+    				break;
+    			case 2:
+    				$(head).animate({left:"+=10px"}, 0);
+    				break;
+    			case 1:
+    				$(head).animate({top:"-=10px"}, 0);
+    				break;
+    			case 3:
+    				$(head).animate({top:"+=10px"}, 0);
+    				break;
+    		};
+    	}, 500);
+    };
+};
 
+$(document).ready(function() {
+    var snake=new Snake();
+    var head=$('#snake');
+    var inter=0;
+    $(document).keydown(function(key){
+        switch(parseInt(key.which,10)) {
+			case 65:
+				snake.direction=4;
+				break;
+			case 83:
+				snake.direction=3;
+				break;
+			case 87:
+				snake.direction=1;
+				break;
+			case 68:
+				snake.direction=2;
+				break;
+			default:
+				break;
+		};
+		clearInterval(inter);
+    	inter=snake.move(head, snake.direction);
+    });
+
+
+
+});
 $(document).ready(function(){
 	$('#show').click(function(){
 		$.ajax({

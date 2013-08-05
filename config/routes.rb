@@ -1,6 +1,7 @@
 Async::Application.routes.draw do
   resources :cats
   resources :lions
+  resources :snake
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
