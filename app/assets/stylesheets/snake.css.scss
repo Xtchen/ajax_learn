@@ -1,35 +1,45 @@
 // Place all the styles related to the snake controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.whole{
+	height:600px;
+	width: 600px;
+	border: 1px solid black;
+	border-radius: 5px;
+	position:relative;
+	margin: auto;
+}
+.info{
+	border: 1px solid black;
+	height:30px;
+	width:500px;
+	position: relative;
+	margin: auto;
+	top: 10px;
+}
 .board{
-	top: 100px;
+	top: 20px;
     height:500px;
     width:500px;
     border:1px solid black;
     position:relative;
-    margin: auto;
-}
-
-.node{
-    height:10px;
-    width:10px;
-    background-color:blue;
-    position:absolute;
-    display:none;
-}
-
-.snake{
-    height:10px;
-    width:10px;
-    background-color:green;
-    position:absolute;
-    display:inline;
+    left:50px;
+    display: inline-block;
 }
 
 .board_table{
 	border-spacing: 0px;
 }
+
 .board_table .cell{
 	height:8px;
 	width:10px;
+}
+
+.board_table .snake_body{
+	background-color: black;
+}
+
+.board_table .food{
+	background-color: blue;
 }
