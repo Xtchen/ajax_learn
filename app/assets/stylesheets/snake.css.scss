@@ -37,9 +37,11 @@
 }
 
 .board_table .snake_body{
+	border-radius: 2px;
 	background-color: black;
 }
 
 .board_table .food{
+	border-radius: 2px;
 	background-color: blue;
 }

@@ -22,31 +22,35 @@ function Snake(){
     this.body=init_body();
     this.speed=700;
 
-    //initialize the snake
-    this.init =function(arr){
+    //show the snake
+    this.show_body =function(){
+    	var arr=this.body;
     	for(var i=0;i<arr.length;i++){
     		$("#"+arr[i]).addClass("snake_body");
     	}
-    }
+    };
     
     //move one step based on the current direction
-    function one_step(arr, dir, snake){
+    this.one_step=function(){
+    	var arr=this.body;
+    	var dir=this.direction;
+    	var snake=this;
     	var head=arr[0];
     	var x=parseInt(head.split("_")[0]);
     	var y=parseInt(head.split("_")[1]);
     	var new_head="";
     	//get the position of the new head
     	switch(dir){
-	   		case 4:
+	   		case 'L':
 	   			new_head=x+"_"+(y-1);
 	    		break;
-	    	case 2:
+	    	case 'R':
 	   			new_head=x+"_"+(y+1);
 				break;
-	    	case 1:
+	    	case 'U':
 	   			new_head=(x-1)+"_"+y;
 	    		break;
-	    	case 3:
+	    	case 'D':
 	   			new_head=(x+1)+"_"+y;
 	    		break;
 		};
@@ -104,14 +108,15 @@ function Snake(){
     	else{
     		return 5;
     	}
-    }
+    };
 
     //keep moving!
-    this.move=function(arr, dir, snake){
-    	one_step(arr, dir, snake);
+    this.move=function(){
+    	var snake=this;
+    	snake.one_step();
     	return setInterval(function(){
-    		one_step(arr, dir, snake)
-    	}, snake.speed);
+    		snake.one_step();	
+    	}, this.speed);
     };
 };
 
@@ -161,13 +166,13 @@ function create_food(snake){
 function speed(snake){
 	var length=snake.body.length;
 	if(length<30){
-		 snake.speed=700-length/10*100;
+		 snake.speed=700-Math.floor(length/10)*100;
 	}
 	else if(length<100){
-		snake.speed=600-length/10*50;
+		snake.speed=600-Math.floor(length/10)*50;
 	}
 	else if(length<900){
-		snake.speed=110-length/100*10;
+		snake.speed=110-Math.floor(length/100)*10;
 	}
 	else{
 		snake.speed=20;
@@ -179,26 +184,26 @@ function key_handler(snake,key,inter){
 	if(snake.dead)return false;
 	switch(parseInt(key.which,10)) {
 		case 65:
-			if(snake.direction!=2)
-			snake.direction=4;
+			if(snake.direction!='R')
+			snake.direction='L';
 			break;
 		case 83:
-			if(snake.direction!=1)
-			snake.direction=3;
+			if(snake.direction!='U')
+			snake.direction='D';
 			break;
 		case 87:
-			if(snake.direction!=3)
-			snake.direction=1;
+			if(snake.direction!='D')
+			snake.direction='U';
 			break;
 		case 68:
-			if(snake.direction!=4)
-			snake.direction=2;
+			if(snake.direction!='L')
+			snake.direction='R';
 			break;
 		default:
 			break;
 	};
 	clearInterval(inter);
-    return snake.move(snake.body, snake.direction, snake);
+    return snake.move();
 }
 
 //update the value of length
@@ -212,13 +217,14 @@ function update_speed(span, snake){
 }
 
 $(document).ready(function() {
+	//create a new snake
     var snake=new Snake();
     var main=$('#board');
     var inter=0;
     //create the table
     create_table(main);
-    //initialize the snake
-    snake.init(snake.body);
+    //show the snake
+    snake.show_body();
     //create food
     create_food(snake);
     //display the speed and length
